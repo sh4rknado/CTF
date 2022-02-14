@@ -6,7 +6,7 @@ execute the compilated ch11 to Show the password
 
 ### Note :
 
-  - alias and ewport not working in this case 
+  - alias and export not working in this case 
 
 ## Exploit :
 
