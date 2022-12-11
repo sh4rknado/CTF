@@ -1,0 +1,17 @@
+use auxiliary/scanner/ftp/ftp_version
+set RHOSTS 10.129.164.4
+run
+
+use auxiliary/scanner/ftp/anonymous
+set RHOSTS 10.129.164.4
+run
+
+use use auxiliary/scanner/ftp/ftp_login
+RHOSTS 10.129.164.4
+set THREADS 205
+set USERNAME msfadmin
+set PASSWORD msfadmin
+set VERBOSE true
+run
+
+

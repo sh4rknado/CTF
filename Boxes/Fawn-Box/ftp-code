@@ -1,0 +1,46 @@
+110 	Restart marker reply
+120 	Service ready in nnn minutes
+125 	Data connection already open; transfer starting
+150 	File status okay; about to open data connection
+200 	Command okay
+202 	Command not implemented; not used on this host
+211 	System status, or system help reply
+212 	Directory status
+213 	File status
+214 	Help message
+215 	VM is the operating system of this server
+220 	Service ready for new user
+230     Login successful
+221 	QUIT command received
+226 	Closing data connection; requested file action successful
+227 	The FTP server has opened a passive connection for data transfer at the specified IP address and port.
+229 	Entering extended passive mode.
+230 	User logged on; requested minidisk, BFS, or SFS Directory not available; proceed
+234 	Security data exchange complete
+250 	Requested file action or directory okay, completed
+255 	In target directory already
+257 	PATH NAME created or directory status given
+331 	Send password please
+332 	Supply minidisk password using account
+421 	Service not available; closing Telnet connection
+425 	Cannot open data connection
+426 	Connection closed; transfer ended abnormally
+431 	Temporarily unable to process security
+450 	Requested action not taken; file busy, minidisks or SFS directory not available
+451 	Requested action aborted; local error in processing
+452 	Requested action not taken; insufficient storage space in system
+500 	Syntax error; command unrecognized
+501 	Syntax error in parameters or arguments
+502 	Command not implemented
+503 	Bad sequence of commands
+504 	Command not implemented for that parameter
+521 	Data connection cannot be opened with this PROT setting
+522 	Unsupported protocol. (1,2)
+530 	Not logged on
+532 	Need account for storing files
+533 	Command protection level denied for policy reasons
+534 	Request denied for policy reasons
+550 	Requested action not taken; file not found or no access
+551 	Requested action aborted; page type unknown
+552 	Requested file action ended abnormally; exceeded storage allocation
+553 	Requested action not taken; file name not allowed
