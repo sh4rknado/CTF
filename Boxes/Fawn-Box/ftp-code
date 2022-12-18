@@ -15,7 +15,7 @@
 226 	Closing data connection; requested file action successful
 227 	The FTP server has opened a passive connection for data transfer at the specified IP address and port.
 229 	Entering extended passive mode.
-230 	User logged on; requested minidisk, BFS, or SFS Directory not available; proceed
+230 	Anonymous FTP login allowed; User logged on; requested minidisk, BFS, or SFS Directory not available; proceed
 234 	Security data exchange complete
 250 	Requested file action or directory okay, completed
 255 	In target directory already
