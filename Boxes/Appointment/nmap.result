@@ -1,0 +1,540 @@
+sudo nmap -sS -sV -p 1-65535 10.129.8.72                                                                                  
+Starting Nmap 7.93 ( https://nmap.org ) at 2022-12-18 11:05 CET
+Nmap scan report for 10.129.8.72
+Host is up (0.024s latency).
+Not shown: 65534 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Apache httpd 2.4.38 ((Debian))
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 19.29 seconds
+
+
+# Crawler
+
+
+    /opt/HackingTools  gospider -s http://10.129.8.72:80/                                                                                                                       ✔  11:47:00  
+[url] - [code-200] - http://10.129.8.72:80/
+[href] - http://10.129.8.72:80/images/icons/favicon.ico
+[href] - http://10.129.8.72:80/vendor/bootstrap/css/bootstrap.min.css
+[href] - http://10.129.8.72:80/fonts/font-awesome-4.7.0/css/font-awesome.min.css
+[href] - http://10.129.8.72:80/fonts/iconic/css/material-design-iconic-font.min.css
+[href] - http://10.129.8.72:80/vendor/animate/animate.css
+[href] - http://10.129.8.72:80/vendor/css-hamburgers/hamburgers.min.css
+[href] - http://10.129.8.72:80/vendor/animsition/css/animsition.min.css
+[href] - http://10.129.8.72:80/vendor/select2/select2.min.css
+[href] - http://10.129.8.72:80/vendor/daterangepicker/daterangepicker.css
+[href] - http://10.129.8.72:80/css/util.css
+[href] - http://10.129.8.72:80/css/main.css
+[href] - http://10.129.8.72:80/
+[javascript] - http://10.129.8.72:80/vendor/jquery/jquery-3.2.1.min.js
+[javascript] - http://10.129.8.72:80/vendor/animsition/js/animsition.min.js
+[javascript] - http://10.129.8.72:80/vendor/bootstrap/js/popper.js
+[javascript] - http://10.129.8.72:80/vendor/bootstrap/js/bootstrap.min.js
+[javascript] - http://10.129.8.72:80/vendor/select2/select2.min.js
+[javascript] - http://10.129.8.72:80/vendor/daterangepicker/moment.min.js
+[javascript] - http://10.129.8.72:80/vendor/daterangepicker/daterangepicker.js
+[javascript] - http://10.129.8.72:80/vendor/countdowntime/countdowntime.js
+[javascript] - http://10.129.8.72:80/js/main.js
+[url] - [code-200] - http://10.129.8.72:80/vendor/animsition/js/animsition.min.js
+[url] - [code-200] - http://10.129.8.72:80/vendor/animsition/js/animsition.js
+[url] - [code-200] - http://10.129.8.72:80/vendor/bootstrap/js/popper.js
+[url] - [code-200] - http://10.129.8.72:80/vendor/bootstrap/js/bootstrap.js
+[url] - [code-200] - http://10.129.8.72:80/vendor/jquery/jquery-3.2.1.min.js
+[url] - [code-200] - http://10.129.8.72:80/vendor/bootstrap/js/bootstrap.min.js
+[linkfinder] - [from: http://10.129.8.72:80/vendor/jquery/jquery-3.2.1.min.js] - text/xml
+[linkfinder] - http://10.129.8.72:80/vendor/jquery/text/xml
+[linkfinder] - http://10.129.8.72:80/text/xml
+[linkfinder] - [from: http://10.129.8.72:80/vendor/jquery/jquery-3.2.1.min.js] - text/plain
+[linkfinder] - http://10.129.8.72:80/vendor/jquery/text/plain
+[linkfinder] - http://10.129.8.72:80/text/plain
+[linkfinder] - [from: http://10.129.8.72:80/vendor/jquery/jquery-3.2.1.min.js] - text/html
+[linkfinder] - http://10.129.8.72:80/vendor/jquery/text/html
+[linkfinder] - http://10.129.8.72:80/text/html
+[linkfinder] - [from: http://10.129.8.72:80/vendor/jquery/jquery-3.2.1.min.js] - application/x-www-form-urlencoded
+[linkfinder] - http://10.129.8.72:80/vendor/jquery/application/x-www-form-urlencoded
+[linkfinder] - http://10.129.8.72:80/application/x-www-form-urlencoded
+[url] - [code-200] - http://10.129.8.72:80/vendor/daterangepicker/daterangepicker.js
+[url] - [code-200] - http://10.129.8.72:80/vendor/select2/select2.js
+[url] - [code-200] - http://10.129.8.72:80/vendor/daterangepicker/moment.min.js
+[linkfinder] - [from: http://10.129.8.72:80/vendor/daterangepicker/moment.min.js] - ./locale/
+[linkfinder] - http://10.129.8.72:80/vendor/daterangepicker/locale/
+[linkfinder] - http://10.129.8.72:80/locale/
+[linkfinder] - [from: http://10.129.8.72:80/vendor/daterangepicker/moment.min.js] - MM/DD/YYYY
+[linkfinder] - http://10.129.8.72:80/vendor/daterangepicker/MM/DD/YYYY
+[linkfinder] - http://10.129.8.72:80/MM/DD/YYYY
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - one/two/three
+[linkfinder] - http://10.129.8.72:80/vendor/select2/one/two/three
+[linkfinder] - http://10.129.8.72:80/one/two/three
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - one/two/three.js
+[linkfinder] - http://10.129.8.72:80/vendor/select2/one/two/three.js
+[linkfinder] - http://10.129.8.72:80/one/two/three.js
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - one/two
+[linkfinder] - http://10.129.8.72:80/vendor/select2/one/two
+[linkfinder] - http://10.129.8.72:80/one/two
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/utils
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/utils
+[linkfinder] - http://10.129.8.72:80/select2/utils
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/results
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/results
+[linkfinder] - http://10.129.8.72:80/select2/results
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./utils
+[linkfinder] - http://10.129.8.72:80/vendor/select2/utils
+[linkfinder] - http://10.129.8.72:80/utils
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/keys
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/keys
+[linkfinder] - http://10.129.8.72:80/select2/keys
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/selection/base
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/selection/base
+[linkfinder] - http://10.129.8.72:80/select2/selection/base
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ../utils
+[linkfinder] - http://10.129.8.72:80/vendor/utils
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ../keys
+[linkfinder] - http://10.129.8.72:80/vendor/keys
+[linkfinder] - http://10.129.8.72:80/keys
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/selection/single
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/selection/single
+[linkfinder] - http://10.129.8.72:80/select2/selection/single
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./base
+[linkfinder] - http://10.129.8.72:80/vendor/select2/base
+[linkfinder] - http://10.129.8.72:80/base
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/selection/multiple
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/selection/multiple
+[linkfinder] - http://10.129.8.72:80/select2/selection/multiple
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/selection/placeholder
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/selection/placeholder
+[linkfinder] - http://10.129.8.72:80/select2/selection/placeholder
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/selection/allowClear
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/selection/allowClear
+[linkfinder] - http://10.129.8.72:80/select2/selection/allowClear
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/selection/search
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/selection/search
+[linkfinder] - http://10.129.8.72:80/select2/selection/search
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/selection/eventRelay
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/selection/eventRelay
+[linkfinder] - http://10.129.8.72:80/select2/selection/eventRelay
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/translation
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/translation
+[linkfinder] - http://10.129.8.72:80/select2/translation
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/diacritics
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/diacritics
+[linkfinder] - http://10.129.8.72:80/select2/diacritics
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/data/base
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/data/base
+[linkfinder] - http://10.129.8.72:80/select2/data/base
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/data/select
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/data/select
+[linkfinder] - http://10.129.8.72:80/select2/data/select
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/data/array
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/data/array
+[linkfinder] - http://10.129.8.72:80/select2/data/array
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./select
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select
+[linkfinder] - http://10.129.8.72:80/select
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/data/ajax
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/data/ajax
+[linkfinder] - http://10.129.8.72:80/select2/data/ajax
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./array
+[linkfinder] - http://10.129.8.72:80/vendor/select2/array
+[linkfinder] - http://10.129.8.72:80/array
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/data/tags
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/data/tags
+[linkfinder] - http://10.129.8.72:80/select2/data/tags
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/data/tokenizer
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/data/tokenizer
+[linkfinder] - http://10.129.8.72:80/select2/data/tokenizer
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/data/minimumInputLength
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/data/minimumInputLength
+[linkfinder] - http://10.129.8.72:80/select2/data/minimumInputLength
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/data/maximumInputLength
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/data/maximumInputLength
+[linkfinder] - http://10.129.8.72:80/select2/data/maximumInputLength
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/data/maximumSelectionLength
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/data/maximumSelectionLength
+[linkfinder] - http://10.129.8.72:80/select2/data/maximumSelectionLength
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/dropdown
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/dropdown
+[linkfinder] - http://10.129.8.72:80/select2/dropdown
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/dropdown/search
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/dropdown/search
+[linkfinder] - http://10.129.8.72:80/select2/dropdown/search
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/dropdown/hidePlaceholder
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/dropdown/hidePlaceholder
+[linkfinder] - http://10.129.8.72:80/select2/dropdown/hidePlaceholder
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/dropdown/infiniteScroll
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/dropdown/infiniteScroll
+[linkfinder] - http://10.129.8.72:80/select2/dropdown/infiniteScroll
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/dropdown/attachBody
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/dropdown/attachBody
+[linkfinder] - http://10.129.8.72:80/select2/dropdown/attachBody
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/dropdown/minimumResultsForSearch
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/dropdown/minimumResultsForSearch
+[linkfinder] - http://10.129.8.72:80/select2/dropdown/minimumResultsForSearch
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/dropdown/selectOnClose
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/dropdown/selectOnClose
+[linkfinder] - http://10.129.8.72:80/select2/dropdown/selectOnClose
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/dropdown/closeOnSelect
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/dropdown/closeOnSelect
+[linkfinder] - http://10.129.8.72:80/select2/dropdown/closeOnSelect
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/i18n/en
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/i18n/en
+[linkfinder] - http://10.129.8.72:80/select2/i18n/en
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/defaults
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/defaults
+[linkfinder] - http://10.129.8.72:80/select2/defaults
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./results
+[linkfinder] - http://10.129.8.72:80/vendor/select2/results
+[linkfinder] - http://10.129.8.72:80/results
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./selection/single
+[linkfinder] - http://10.129.8.72:80/vendor/select2/selection/single
+[linkfinder] - http://10.129.8.72:80/selection/single
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./selection/multiple
+[linkfinder] - http://10.129.8.72:80/vendor/select2/selection/multiple
+[linkfinder] - http://10.129.8.72:80/selection/multiple
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./selection/placeholder
+[linkfinder] - http://10.129.8.72:80/vendor/select2/selection/placeholder
+[linkfinder] - http://10.129.8.72:80/selection/placeholder
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./selection/allowClear
+[linkfinder] - http://10.129.8.72:80/vendor/select2/selection/allowClear
+[linkfinder] - http://10.129.8.72:80/selection/allowClear
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./selection/search
+[linkfinder] - http://10.129.8.72:80/vendor/select2/selection/search
+[linkfinder] - http://10.129.8.72:80/selection/search
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./selection/eventRelay
+[linkfinder] - http://10.129.8.72:80/vendor/select2/selection/eventRelay
+[linkfinder] - http://10.129.8.72:80/selection/eventRelay
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./translation
+[linkfinder] - http://10.129.8.72:80/vendor/select2/translation
+[linkfinder] - http://10.129.8.72:80/translation
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./diacritics
+[linkfinder] - http://10.129.8.72:80/vendor/select2/diacritics
+[linkfinder] - http://10.129.8.72:80/diacritics
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./data/select
+[linkfinder] - http://10.129.8.72:80/vendor/select2/data/select
+[linkfinder] - http://10.129.8.72:80/data/select
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./data/array
+[linkfinder] - http://10.129.8.72:80/vendor/select2/data/array
+[linkfinder] - http://10.129.8.72:80/data/array
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./data/ajax
+[linkfinder] - http://10.129.8.72:80/vendor/select2/data/ajax
+[linkfinder] - http://10.129.8.72:80/data/ajax
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./data/tags
+[linkfinder] - http://10.129.8.72:80/vendor/select2/data/tags
+[linkfinder] - http://10.129.8.72:80/data/tags
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./data/tokenizer
+[linkfinder] - http://10.129.8.72:80/vendor/select2/data/tokenizer
+[linkfinder] - http://10.129.8.72:80/data/tokenizer
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./data/minimumInputLength
+[linkfinder] - http://10.129.8.72:80/vendor/select2/data/minimumInputLength
+[linkfinder] - http://10.129.8.72:80/data/minimumInputLength
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./data/maximumInputLength
+[linkfinder] - http://10.129.8.72:80/vendor/select2/data/maximumInputLength
+[linkfinder] - http://10.129.8.72:80/data/maximumInputLength
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./data/maximumSelectionLength
+[linkfinder] - http://10.129.8.72:80/vendor/select2/data/maximumSelectionLength
+[linkfinder] - http://10.129.8.72:80/data/maximumSelectionLength
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./dropdown
+[linkfinder] - http://10.129.8.72:80/vendor/select2/dropdown
+[linkfinder] - http://10.129.8.72:80/dropdown
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./dropdown/search
+[linkfinder] - http://10.129.8.72:80/vendor/select2/dropdown/search
+[linkfinder] - http://10.129.8.72:80/dropdown/search
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./dropdown/hidePlaceholder
+[linkfinder] - http://10.129.8.72:80/vendor/select2/dropdown/hidePlaceholder
+[linkfinder] - http://10.129.8.72:80/dropdown/hidePlaceholder
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./dropdown/infiniteScroll
+[linkfinder] - http://10.129.8.72:80/vendor/select2/dropdown/infiniteScroll
+[linkfinder] - http://10.129.8.72:80/dropdown/infiniteScroll
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./dropdown/attachBody
+[linkfinder] - http://10.129.8.72:80/vendor/select2/dropdown/attachBody
+[linkfinder] - http://10.129.8.72:80/dropdown/attachBody
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./dropdown/minimumResultsForSearch
+[linkfinder] - http://10.129.8.72:80/vendor/select2/dropdown/minimumResultsForSearch
+[linkfinder] - http://10.129.8.72:80/dropdown/minimumResultsForSearch
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./dropdown/selectOnClose
+[linkfinder] - http://10.129.8.72:80/vendor/select2/dropdown/selectOnClose
+[linkfinder] - http://10.129.8.72:80/dropdown/selectOnClose
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./dropdown/closeOnSelect
+[linkfinder] - http://10.129.8.72:80/vendor/select2/dropdown/closeOnSelect
+[linkfinder] - http://10.129.8.72:80/dropdown/closeOnSelect
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./i18n/en
+[linkfinder] - http://10.129.8.72:80/vendor/select2/i18n/en
+[linkfinder] - http://10.129.8.72:80/i18n/en
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - compat/query
+[linkfinder] - http://10.129.8.72:80/vendor/select2/compat/query
+[linkfinder] - http://10.129.8.72:80/compat/query
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - compat/initSelection
+[linkfinder] - http://10.129.8.72:80/vendor/select2/compat/initSelection
+[linkfinder] - http://10.129.8.72:80/compat/initSelection
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - compat/dropdownCss
+[linkfinder] - http://10.129.8.72:80/vendor/select2/compat/dropdownCss
+[linkfinder] - http://10.129.8.72:80/compat/dropdownCss
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - compat/containerCss
+[linkfinder] - http://10.129.8.72:80/vendor/select2/compat/containerCss
+[linkfinder] - http://10.129.8.72:80/compat/containerCss
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./i18n/
+[linkfinder] - http://10.129.8.72:80/vendor/select2/i18n/
+[linkfinder] - http://10.129.8.72:80/i18n/
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/options
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/options
+[linkfinder] - http://10.129.8.72:80/select2/options
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./defaults
+[linkfinder] - http://10.129.8.72:80/vendor/select2/defaults
+[linkfinder] - http://10.129.8.72:80/defaults
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - compat/inputData
+[linkfinder] - http://10.129.8.72:80/vendor/select2/compat/inputData
+[linkfinder] - http://10.129.8.72:80/compat/inputData
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/core
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/core
+[linkfinder] - http://10.129.8.72:80/select2/core
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./options
+[linkfinder] - http://10.129.8.72:80/vendor/select2/options
+[linkfinder] - http://10.129.8.72:80/options
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./keys
+[linkfinder] - http://10.129.8.72:80/vendor/select2/keys
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/compat/utils
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/compat/utils
+[linkfinder] - http://10.129.8.72:80/select2/compat/utils
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/compat/containerCss
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/compat/containerCss
+[linkfinder] - http://10.129.8.72:80/select2/compat/containerCss
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/compat/dropdownCss
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/compat/dropdownCss
+[linkfinder] - http://10.129.8.72:80/select2/compat/dropdownCss
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/compat/initSelection
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/compat/initSelection
+[linkfinder] - http://10.129.8.72:80/select2/compat/initSelection
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/compat/inputData
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/compat/inputData
+[linkfinder] - http://10.129.8.72:80/select2/compat/inputData
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/compat/matcher
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/compat/matcher
+[linkfinder] - http://10.129.8.72:80/select2/compat/matcher
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/compat/query
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/compat/query
+[linkfinder] - http://10.129.8.72:80/select2/compat/query
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/dropdown/attachContainer
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/dropdown/attachContainer
+[linkfinder] - http://10.129.8.72:80/select2/dropdown/attachContainer
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/dropdown/stopPropagation
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/dropdown/stopPropagation
+[linkfinder] - http://10.129.8.72:80/select2/dropdown/stopPropagation
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - select2/selection/stopPropagation
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/selection/stopPropagation
+[linkfinder] - http://10.129.8.72:80/select2/selection/stopPropagation
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./select2/core
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.js] - ./select2/defaults
+[url] - [code-200] - http://10.129.8.72:80/vendor/select2/select2.min.js
+[url] - [code-200] - http://10.129.8.72:80/vendor/countdowntime/countdowntime.js
+[url] - [code-200] - http://10.129.8.72:80/vendor/daterangepicker/moment.js
+[url] - [code-200] - http://10.129.8.72:80/js/main.js
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/utils
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/results
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./utils
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/keys
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/selection/base
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ../utils
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ../keys
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/selection/single
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./base
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/selection/multiple
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/selection/placeholder
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/selection/allowClear
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/selection/allowClear
+[linkfinder] - http://10.129.8.72:80/select2/selection/allowClear
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/selection/search
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/selection/eventRelay
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/selection/eventRelay
+[linkfinder] - http://10.129.8.72:80/select2/selection/eventRelay
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/translation
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/diacritics
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/data/base
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/data/select
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/data/array
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./select
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/data/ajax
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./array
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/data/tags
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/data/tokenizer
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/data/minimumInputLength
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/data/minimumInputLength
+[linkfinder] - http://10.129.8.72:80/select2/data/minimumInputLength
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/data/maximumInputLength
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/data/maximumInputLength
+[linkfinder] - http://10.129.8.72:80/select2/data/maximumInputLength
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/data/maximumSelectionLength
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/data/maximumSelectionLength
+[linkfinder] - http://10.129.8.72:80/select2/data/maximumSelectionLength
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/dropdown
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/dropdown/search
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/dropdown/hidePlaceholder
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/dropdown/hidePlaceholder
+[linkfinder] - http://10.129.8.72:80/select2/dropdown/hidePlaceholder
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/dropdown/infiniteScroll
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/dropdown/infiniteScroll
+[linkfinder] - http://10.129.8.72:80/select2/dropdown/infiniteScroll
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/dropdown/attachBody
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/dropdown/attachBody
+[linkfinder] - http://10.129.8.72:80/select2/dropdown/attachBody
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/dropdown/minimumResultsForSearch
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/dropdown/minimumResultsForSearch
+[linkfinder] - http://10.129.8.72:80/select2/dropdown/minimumResultsForSearch
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/dropdown/selectOnClose
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/dropdown/selectOnClose
+[linkfinder] - http://10.129.8.72:80/select2/dropdown/selectOnClose
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/dropdown/closeOnSelect
+[linkfinder] - http://10.129.8.72:80/vendor/select2/select2/dropdown/closeOnSelect
+[linkfinder] - http://10.129.8.72:80/select2/dropdown/closeOnSelect
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/i18n/en
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/defaults
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./results
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./selection/single
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./selection/multiple
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./selection/placeholder
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./selection/allowClear
+[linkfinder] - http://10.129.8.72:80/vendor/select2/selection/allowClear
+[linkfinder] - http://10.129.8.72:80/selection/allowClear
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./selection/search
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./selection/eventRelay
+[linkfinder] - http://10.129.8.72:80/vendor/select2/selection/eventRelay
+[linkfinder] - http://10.129.8.72:80/selection/eventRelay
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./translation
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./diacritics
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./data/select
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./data/array
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./data/ajax
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./data/tags
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./data/tokenizer
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./data/minimumInputLength
+[linkfinder] - http://10.129.8.72:80/vendor/select2/data/minimumInputLength
+[linkfinder] - http://10.129.8.72:80/data/minimumInputLength
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./data/maximumInputLength
+[linkfinder] - http://10.129.8.72:80/vendor/select2/data/maximumInputLength
+[linkfinder] - http://10.129.8.72:80/data/maximumInputLength
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./data/maximumSelectionLength
+[linkfinder] - http://10.129.8.72:80/vendor/select2/data/maximumSelectionLength
+[linkfinder] - http://10.129.8.72:80/data/maximumSelectionLength
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./dropdown
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./dropdown/search
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./dropdown/hidePlaceholder
+[linkfinder] - http://10.129.8.72:80/vendor/select2/dropdown/hidePlaceholder
+[linkfinder] - http://10.129.8.72:80/dropdown/hidePlaceholder
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./dropdown/infiniteScroll
+[linkfinder] - http://10.129.8.72:80/vendor/select2/dropdown/infiniteScroll
+[linkfinder] - http://10.129.8.72:80/dropdown/infiniteScroll
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./dropdown/attachBody
+[linkfinder] - http://10.129.8.72:80/vendor/select2/dropdown/attachBody
+[linkfinder] - http://10.129.8.72:80/dropdown/attachBody
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./dropdown/minimumResultsForSearch
+[linkfinder] - http://10.129.8.72:80/vendor/select2/dropdown/minimumResultsForSearch
+[linkfinder] - http://10.129.8.72:80/dropdown/minimumResultsForSearch
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./dropdown/selectOnClose
+[linkfinder] - http://10.129.8.72:80/vendor/select2/dropdown/selectOnClose
+[linkfinder] - http://10.129.8.72:80/dropdown/selectOnClose
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./dropdown/closeOnSelect
+[linkfinder] - http://10.129.8.72:80/vendor/select2/dropdown/closeOnSelect
+[linkfinder] - http://10.129.8.72:80/dropdown/closeOnSelect
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./i18n/en
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - compat/query
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - compat/initSelection
+[linkfinder] - http://10.129.8.72:80/vendor/select2/compat/initSelection
+[linkfinder] - http://10.129.8.72:80/compat/initSelection
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - compat/dropdownCss
+[linkfinder] - http://10.129.8.72:80/vendor/select2/compat/dropdownCss
+[linkfinder] - http://10.129.8.72:80/compat/dropdownCss
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - compat/containerCss
+[linkfinder] - http://10.129.8.72:80/vendor/select2/compat/containerCss
+[linkfinder] - http://10.129.8.72:80/compat/containerCss
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./i18n/
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/options
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./defaults
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - compat/inputData
+[linkfinder] - http://10.129.8.72:80/vendor/select2/compat/inputData
+[linkfinder] - http://10.129.8.72:80/compat/inputData
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - select2/core
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./options
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./keys
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./select2/core
+[linkfinder] - [from: http://10.129.8.72:80/vendor/select2/select2.min.js] - ./select2/defaults
+[linkfinder] - [from: http://10.129.8.72:80/vendor/daterangepicker/moment.js] - ./locale/
+[linkfinder] - [from: http://10.129.8.72:80/vendor/daterangepicker/moment.js] - https://github.com/moment/moment/issues/1407 for more info.
+[linkfinder] - https://github.com/moment/moment/issues/1407%20for%20more%20info.
+[linkfinder] - [from: http://10.129.8.72:80/vendor/daterangepicker/moment.js] - MM/DD/YYYY
+[linkfinder] - http://10.129.8.72:80/vendor/daterangepicker/MM/DD/YYYY
+[linkfinder] - http://10.129.8.72:80/MM/DD/YYYY
+
+
+
+
+    /opt/HackingTools  dirb http://10.129.8.72:80/ /usr/share/dirb/wordlists/vulns/apache.txt                                                                               INT ✘  11:50:40  
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Sun Dec 18 11:52:29 2022
+URL_BASE: http://10.129.8.72:80/
+WORDLIST_FILES: /usr/share/dirb/wordlists/vulns/apache.txt
+
+-----------------
+
+GENERATED WORDS: 30                                                            
+
+---- Scanning URL: http://10.129.8.72:80/ ----
++ http://10.129.8.72:80/server-status (CODE:403|SIZE:276)                                                                                                                                           
+                                                                                                                                                                                                    
+-----------------
+END_TIME: Sun Dec 18 11:52:30 2022
+DOWNLOADED: 30 - FOUND: 1
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+START_TIME: Sun Dec 18 11:53:19 2022
+URL_BASE: http://10.129.8.72:80/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+
+-----------------
+
+GENERATED WORDS: 4612                                                          
+
+---- Scanning URL: http://10.129.8.72:80/ ----
+==> DIRECTORY: http://10.129.8.72:80/css/                                                                                                                                                           
+==> DIRECTORY: http://10.129.8.72:80/fonts/                                                                                                                                                         
+==> DIRECTORY: http://10.129.8.72:80/images/                                                                                                                                                        
++ http://10.129.8.72:80/index.php (CODE:200|SIZE:4896)                                                                                                                                              
+==> DIRECTORY: http://10.129.8.72:80/js/                                                                                                                                                            
++ http://10.129.8.72:80/server-status (CODE:403|SIZE:276)                                                                                                                                           
+==> DIRECTORY: http://10.129.8.72:80/vendor/                                                                                                                                                        
+                                                                                                                                                                                                    
+---- Entering directory: http://10.129.8.72:80/css/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                                                                                                    
+---- Entering directory: http://10.129.8.72:80/fonts/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                                                                                                    
+---- Entering directory: http://10.129.8.72:80/images/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                                                                                                    
+---- Entering directory: http://10.129.8.72:80/js/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                                                                                                    
+---- Entering directory: http://10.129.8.72:80/vendor/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                               
+-----------------
+END_TIME: Sun Dec 18 11:55:16 2022
+DOWNLOADED: 4612 - FOUND: 2
+
+
+login : http://10.129.8.72:80/index.php
+PAYLOAD = ' OR 1=1;#
+
