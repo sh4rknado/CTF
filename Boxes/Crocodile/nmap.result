@@ -1,0 +1,222 @@
+sudo nmap -sS -p 1-65535 10.129.187.124 
+
+Starting Nmap 7.93 ( https://nmap.org ) at 2022-12-18 12:35 CET
+Nmap scan report for 10.129.187.124
+Host is up (0.028s latency).
+Not shown: 65533 closed tcp ports (reset)
+PORT   STATE SERVICE
+21/tcp open  ftp
+80/tcp open  http
+
+Nmap done: 1 IP address (1 host up) scanned in 17.85 seconds
+
+
+sudo nmap -sS -sV -sC -p 21,80 10.129.187.124 
+Starting Nmap 7.93 ( https://nmap.org ) at 2022-12-18 12:42 CET
+Nmap scan report for 10.129.187.124
+Host is up (0.023s latency).
+
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:10.10.14.233
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 3
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| -rw-r--r--    1 ftp      ftp            33 Jun 08  2021 allowed.userlist
+|_-rw-r--r--    1 ftp      ftp            62 Apr 20  2021 allowed.userlist.passwd
+80/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Smash - Bootstrap Business Template
+Service Info: OS: Unix
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 7.37 seconds
+
+# Download all
+wget -m ftp://anonymous:anonymous@10.129.187.124 #Donwload all
+
+
+==================================================================================================================================================================
+==================================================================================================================================================================
+
+
+[url] - [code-200] - http://10.129.187.124:80/
+[href] - http://10.129.187.124:80/assets/images/favicon.png
+[href] - http://10.129.187.124:80/assets/css/magnific-popup.css
+[href] - http://10.129.187.124:80/assets/css/slick.css
+[href] - http://10.129.187.124:80/assets/css/LineIcons.css
+[href] - http://10.129.187.124:80/assets/css/bootstrap.min.css
+[href] - http://10.129.187.124:80/assets/css/default.css
+[href] - http://10.129.187.124:80/assets/css/style.css
+[href] - http://10.129.187.124:80/
+[href] - http://10.129.187.124:80/assets/images/portfolio/1.png
+[href] - http://10.129.187.124:80/assets/images/portfolio/2.png
+[href] - http://10.129.187.124:80/assets/images/portfolio/3.png
+[href] - http://10.129.187.124:80/assets/images/portfolio/4.png
+[href] - http://10.129.187.124:80/assets/images/portfolio/5.png
+[href] - http://10.129.187.124:80/assets/images/portfolio/6.png
+[href] - http://10.129.187.124:80/assets/images/portfolio/7.png
+[href] - http://10.129.187.124:80/assets/images/portfolio/8.png
+[href] - http://10.129.187.124:80/assets/images/portfolio/9.png
+[href] - http://10.129.187.124:80/index.html
+[href] - https://facebook.com/uideckHQ
+[href] - https://twitter.com/uideckHQ
+[href] - https://instagram.com/uideckHQ
+[href] - https://uideck.com
+[href] - https://ayroui.com
+[form] - http://10.129.187.124:80/
+[javascript] - http://10.129.187.124:80/assets/js/vendor/jquery-1.12.4.min.js
+[javascript] - http://10.129.187.124:80/assets/js/vendor/modernizr-3.7.1.min.js
+[javascript] - http://10.129.187.124:80/assets/js/popper.min.js
+[javascript] - http://10.129.187.124:80/assets/js/bootstrap.min.js
+[javascript] - http://10.129.187.124:80/assets/js/slick.min.js
+[javascript] - http://10.129.187.124:80/assets/js/jquery.magnific-popup.min.js
+[javascript] - http://10.129.187.124:80/assets/js/ajax-contact.js
+[javascript] - http://10.129.187.124:80/assets/js/imagesloaded.pkgd.min.js
+[javascript] - http://10.129.187.124:80/assets/js/isotope.pkgd.min.js
+[javascript] - http://10.129.187.124:80/assets/js/jquery.easing.min.js
+[javascript] - http://10.129.187.124:80/assets/js/scrolling-nav.js
+[javascript] - http://10.129.187.124:80/assets/js/main.js
+[url] - [code-200] - http://10.129.187.124:80/assets/js/scrolling-nav.js
+[url] - [code-200] - http://10.129.187.124:80/assets/js/ajax-contact.js
+[url] - [code-200] - http://10.129.187.124:80/assets/js/jquery.easing.min.js
+[url] - [code-200] - http://10.129.187.124:80/assets/js/jquery.magnific-popup.min.js
+[url] - [code-200] - http://10.129.187.124:80/assets/js/popper.min.js
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/jquery.magnific-popup.min.js] - //www.youtube.com/embed/%id%?autoplay=1
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/jquery.magnific-popup.min.js] - //player.vimeo.com/video/%id%?autoplay=1
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/jquery.magnific-popup.min.js] - //maps.google.
+[linkfinder] - http://maps.google.
+[url] - [code-200] - http://10.129.187.124:80/assets/js/vendor/modernizr-3.7.1.min.js
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/vendor/modernizr-3.7.1.min.js] - http://www.w3.org/2000/svg
+[linkfinder] - http://www.w3.org/2000/svg
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/vendor/modernizr-3.7.1.min.js] - text/css
+[linkfinder] - http://10.129.187.124:80/assets/js/vendor/text/css
+[linkfinder] - http://10.129.187.124:80/text/css
+[url] - [code-200] - http://10.129.187.124:80/assets/js/vendor/jquery-1.12.4.min.js
+[url] - [code-200] - http://10.129.187.124:80/assets/js/imagesloaded.pkgd.min.js
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/imagesloaded.pkgd.min.js] - ev-emitter/ev-emitter
+[linkfinder] - http://10.129.187.124:80/assets/js/ev-emitter/ev-emitter
+[linkfinder] - http://10.129.187.124:80/ev-emitter/ev-emitter
+[url] - [code-200] - http://10.129.187.124:80/assets/js/slick.min.js
+[url] - [code-200] - http://10.129.187.124:80/assets/js/main.js
+[url] - [code-200] - http://10.129.187.124:80/assets/js/bootstrap.min.js
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/main.js] - assets/images/logo.svg
+[linkfinder] - http://10.129.187.124:80/assets/js/assets/images/logo.svg
+[linkfinder] - http://10.129.187.124:80/assets/images/logo.svg
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/main.js] - assets/images/logo-2.svg
+[linkfinder] - http://10.129.187.124:80/assets/js/assets/images/logo-2.svg
+[linkfinder] - http://10.129.187.124:80/assets/images/logo-2.svg
+[url] - [code-200] - http://10.129.187.124:80/assets/js/isotope.pkgd.min.js
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/vendor/jquery-1.12.4.min.js] - text/xml
+[linkfinder] - http://10.129.187.124:80/assets/js/vendor/text/xml
+[linkfinder] - http://10.129.187.124:80/text/xml
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/vendor/jquery-1.12.4.min.js] - text/plain
+[linkfinder] - http://10.129.187.124:80/assets/js/vendor/text/plain
+[linkfinder] - http://10.129.187.124:80/text/plain
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/vendor/jquery-1.12.4.min.js] - text/html
+[linkfinder] - http://10.129.187.124:80/assets/js/vendor/text/html
+[linkfinder] - http://10.129.187.124:80/text/html
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/vendor/jquery-1.12.4.min.js] - application/x-www-form-urlencoded
+[linkfinder] - http://10.129.187.124:80/assets/js/vendor/application/x-www-form-urlencoded
+[linkfinder] - http://10.129.187.124:80/application/x-www-form-urlencoded
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/isotope.pkgd.min.js] - jquery-bridget/jquery-bridget
+[linkfinder] - http://10.129.187.124:80/assets/js/jquery-bridget/jquery-bridget
+[linkfinder] - http://10.129.187.124:80/jquery-bridget/jquery-bridget
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/isotope.pkgd.min.js] - ev-emitter/ev-emitter
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/isotope.pkgd.min.js] - get-size/get-size
+[linkfinder] - http://10.129.187.124:80/assets/js/get-size/get-size
+[linkfinder] - http://10.129.187.124:80/get-size/get-size
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/isotope.pkgd.min.js] - desandro-matches-selector/matches-selector
+[linkfinder] - http://10.129.187.124:80/assets/js/desandro-matches-selector/matches-selector
+[linkfinder] - http://10.129.187.124:80/desandro-matches-selector/matches-selector
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/isotope.pkgd.min.js] - fizzy-ui-utils/utils
+[linkfinder] - http://10.129.187.124:80/assets/js/fizzy-ui-utils/utils
+[linkfinder] - http://10.129.187.124:80/fizzy-ui-utils/utils
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/isotope.pkgd.min.js] - outlayer/item
+[linkfinder] - http://10.129.187.124:80/assets/js/outlayer/item
+[linkfinder] - http://10.129.187.124:80/outlayer/item
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/isotope.pkgd.min.js] - outlayer/outlayer
+[linkfinder] - http://10.129.187.124:80/assets/js/outlayer/outlayer
+[linkfinder] - http://10.129.187.124:80/outlayer/outlayer
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/isotope.pkgd.min.js] - ./item
+[linkfinder] - http://10.129.187.124:80/assets/js/item
+[linkfinder] - http://10.129.187.124:80/item
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/isotope.pkgd.min.js] - isotope-layout/js/item
+[linkfinder] - http://10.129.187.124:80/assets/js/isotope-layout/js/item
+[linkfinder] - http://10.129.187.124:80/isotope-layout/js/item
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/isotope.pkgd.min.js] - isotope-layout/js/layout-mode
+[linkfinder] - http://10.129.187.124:80/assets/js/isotope-layout/js/layout-mode
+[linkfinder] - http://10.129.187.124:80/isotope-layout/js/layout-mode
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/isotope.pkgd.min.js] - masonry-layout/masonry
+[linkfinder] - http://10.129.187.124:80/assets/js/masonry-layout/masonry
+[linkfinder] - http://10.129.187.124:80/masonry-layout/masonry
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/isotope.pkgd.min.js] - isotope-layout/js/layout-modes/masonry
+[linkfinder] - http://10.129.187.124:80/assets/js/isotope-layout/js/layout-modes/masonry
+[linkfinder] - http://10.129.187.124:80/isotope-layout/js/layout-modes/masonry
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/isotope.pkgd.min.js] - ../layout-mode
+[linkfinder] - http://10.129.187.124:80/assets/layout-mode
+[linkfinder] - http://10.129.187.124:80/layout-mode
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/isotope.pkgd.min.js] - isotope-layout/js/layout-modes/fit-rows
+[linkfinder] - http://10.129.187.124:80/assets/js/isotope-layout/js/layout-modes/fit-rows
+[linkfinder] - http://10.129.187.124:80/isotope-layout/js/layout-modes/fit-rows
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/isotope.pkgd.min.js] - isotope-layout/js/layout-modes/vertical
+[linkfinder] - http://10.129.187.124:80/assets/js/isotope-layout/js/layout-modes/vertical
+[linkfinder] - http://10.129.187.124:80/isotope-layout/js/layout-modes/vertical
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/bootstrap.min.js] - popper.js
+[linkfinder] - http://10.129.187.124:80/assets/js/popper.js
+[linkfinder] - http://10.129.187.124:80/popper.js
+[linkfinder] - [from: http://10.129.187.124:80/assets/js/bootstrap.min.js] - text/html
+[linkfinder] - http://10.129.187.124:80/assets/js/text/html
+
+
+
+    ~  gobuster dir -u http://10.129.187.124:80/  -w /usr/share/dirb/wordlists/common.txt -x .php                                                                                               ✔  13:13:41  
+===============================================================
+Gobuster v3.3
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://10.129.187.124:80/
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/dirb/wordlists/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.3
+[+] Extensions:              php
+[+] Timeout:                 10s
+===============================================================
+2022/12/18 13:13:59 Starting gobuster in directory enumeration mode
+===============================================================
+/.php                 (Status: 403) [Size: 279]
+/.hta                 (Status: 403) [Size: 279]
+/.htaccess            (Status: 403) [Size: 279]
+/.hta.php             (Status: 403) [Size: 279]
+/.htaccess.php        (Status: 403) [Size: 279]
+/.htpasswd            (Status: 403) [Size: 279]
+/.htpasswd.php        (Status: 403) [Size: 279]
+/assets               (Status: 301) [Size: 317] [--> http://10.129.187.124/assets/]
+/config.php           (Status: 200) [Size: 0]
+/css                  (Status: 301) [Size: 314] [--> http://10.129.187.124/css/]
+/dashboard            (Status: 301) [Size: 320] [--> http://10.129.187.124/dashboard/]
+/fonts                (Status: 301) [Size: 316] [--> http://10.129.187.124/fonts/]
+/index.html           (Status: 200) [Size: 58565]
+/js                   (Status: 301) [Size: 313] [--> http://10.129.187.124/js/]
+/login.php            (Status: 200) [Size: 1577]
+/logout.php           (Status: 302) [Size: 0] [--> login.php]
+/server-status        (Status: 403) [Size: 279]
+Progress: 9060 / 9230 (98.16%)===============================================================
+2022/12/18 13:14:21 Finished
+===============================================================
+
+
+username: admin
+password: rKXM59ESxesUFHAd

@@ -488,6 +488,12 @@ GENERATED WORDS: 30
 END_TIME: Sun Dec 18 11:52:30 2022
 DOWNLOADED: 30 - FOUND: 1
 
+
+
+
+
+dirb http://10.129.8.72:80/ /usr/share/dirb/wordlists/common.txt
+
 -----------------
 DIRB v2.22    
 By The Dark Raver

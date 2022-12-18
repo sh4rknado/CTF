@@ -1,0 +1,4 @@
+drwxr-xr-x    2 ftp      ftp          4096 Jun 08  2021 .
+drwxr-xr-x    2 ftp      ftp          4096 Jun 08  2021 ..
+-rw-r--r--    1 ftp      ftp            33 Jun 08  2021 allowed.userlist
+-rw-r--r--    1 ftp      ftp            62 Apr 20  2021 allowed.userlist.passwd
