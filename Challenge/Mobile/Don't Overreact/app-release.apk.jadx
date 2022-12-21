@@ -1,0 +1,57 @@
+{
+  "projectVersion": 1,
+  "files": [
+    "app-release.apk"
+  ],
+  "treeExpansions": [
+    [
+      "Resources",
+      "app-release.apk"
+    ],
+    [
+      "assets",
+      "Resources",
+      "app-release.apk"
+    ]
+  ],
+  "codeData": {
+    "comments": [],
+    "renames": []
+  },
+  "openTabs": [
+    {
+      "type": "class",
+      "tabPath": "com.facebook.react.ReactActivity",
+      "subPath": "java",
+      "caret": 714,
+      "view": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": "class",
+      "tabPath": "com.facebook.react.ReactNativeHost",
+      "subPath": "java",
+      "caret": 508,
+      "view": {
+        "x": 0,
+        "y": 96
+      }
+    },
+    {
+      "type": "resource",
+      "tabPath": "assets/index.android.bundle",
+      "subPath": "",
+      "caret": 732915,
+      "view": {
+        "x": 749,
+        "y": 5637
+      }
+    }
+  ],
+  "activeTab": 2,
+  "cacheDir": "app-release.apk.cache",
+  "enableLiveReload": false,
+  "searchHistory": []
+}
