@@ -1,0 +1,30 @@
+A) Decrypt SecureString
+
+$SecurePassword = ConvertTo-SecureString "P@ssw0rd" -AsPlainText -Force
+[System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($SecurePassword))
+
+=======================================================
+=======================================================
+
+1) make sure that is in fullLanguage
+
+Connect to the database With the secure Password: System.Security.SecureString. Backup the table
+Table to dump:
+> $ExecutionContext.SessionState.LanguageMode
+Connect to the database With the secure Password: System.Security.SecureString. Backup the table ConstrainedLanguage
+
+Table to dump:
+>
+
+2) if is fullLanguage we can use marshall
+
+[System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($SecurePassword))
+
+OR
+
+[System.Runtime.InteropServices.Marshal]::PtrToStringUni([System.Runtime.InteropServices.Marshal]::SecureStringToCoTaskMemUnicode($password))
+
+OR
+
+$credentials = New-Object System.Net.NetworkCredential("TestUsername", $SecurePassword, "TestDomain") ; $Ptr = [System.Runtime.InteropServices.Marshal]::SecureStringToCoTaskMemUnicode($credentials.SecurePassword) ; $result = [System.Runtime.InteropServices.Marshal]::PtrToStringUni($Ptr) ; [System.Runtime.InteropServices.Marshal]::ZeroFreeCoTaskMemUnicode($Ptr) ; $result  
+
